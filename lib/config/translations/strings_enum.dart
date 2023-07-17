@@ -26,4 +26,17 @@ class Strings {
   static const String welcomeAuth = 'Welcome,';
   static const String signUpAuth = 'Sign Up';
   static const String signInToContinueAuth = 'Sign in to Continue';
+
+  static const String exploreBottomNav = 'Explore';
+  static const String cartBottomNav = 'Cart';
+  static const String accountBottomNav = 'Account';
+
+  static const String categoriesHome = 'Categories';
+  static const String menHome = 'Men';
+  static const String womenHome = 'Women';
+  static const String devicesHome = 'Devices';
+  static const String gadgetsHome = 'Gadgets';
+  static const String gamingHome = 'Gaming';
+  static const String bestSellingHome = 'Best Selling';
+  static const String seeAllHome = 'See all';
 }

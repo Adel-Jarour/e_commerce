@@ -1,10 +1,12 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
+import 'package:e_commerce/routes/app_routes.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/forget_password_widget.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/login_input_fields_widget.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/welcome_widget.dart';
 import 'package:e_commerce/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CardLoginWidget extends StatelessWidget {
   const CardLoginWidget({
@@ -26,7 +28,8 @@ class CardLoginWidget extends StatelessWidget {
               offset: const Offset(0, 5),
               blurRadius: 15,
               color: const Color(0xff242424).withAlpha(20),
-              spreadRadius: 2),
+              spreadRadius: 2,
+          ),
         ],
       ),
       child: Column(
@@ -38,6 +41,7 @@ class CardLoginWidget extends StatelessWidget {
           CustomButton(
             txt: Strings.signInButton,
             onTap: () {
+              Get.toNamed(Routes.bottomNav);
             },
           ),
         ],
