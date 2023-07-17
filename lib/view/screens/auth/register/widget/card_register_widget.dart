@@ -1,15 +1,13 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
-import 'package:e_commerce/view/screens/auth/login/widget/forget_password_widget.dart';
-import 'package:e_commerce/view/screens/auth/login/widget/login_input_fields_widget.dart';
-import 'package:e_commerce/view/screens/auth/login/widget/welcome_widget.dart';
+import 'package:e_commerce/view/screens/auth/register/widget/register_input_fields_widget.dart';
+import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:e_commerce/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CardLoginWidget extends StatelessWidget {
-  const CardLoginWidget({
-    super.key,
-  });
+
+class CardRegisterWidget extends StatelessWidget {
+  const CardRegisterWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +30,15 @@ class CardLoginWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const WelcomeWidget(),
-          LoginInputFieldsWidget(),
-          const ForgetPasswordWidget(),
+          CustomText(
+            txt: Strings.signUpAuth,
+            fontSize: 30.sp,
+            fontWeight: FontWeight.w600,
+          ),
+          SizedBox(height: 47.h,),
+          RegisterInputFieldsWidget(),
           CustomButton(
-            txt: Strings.signInButton,
+            txt: Strings.signUpButton,
             onTap: () {
             },
           ),
@@ -45,3 +47,6 @@ class CardLoginWidget extends StatelessWidget {
     );
   }
 }
+
+
+

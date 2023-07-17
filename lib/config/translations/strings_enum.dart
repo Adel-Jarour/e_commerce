@@ -23,6 +23,7 @@ class Strings {
 
   static const String scanningAuth = 'SCANNING';
   static const String orAuth = '-OR-';
-  static const String welcome = 'Welcome,';
-  static const String signInToContinue = 'Sign in to Continue';
+  static const String welcomeAuth = 'Welcome,';
+  static const String signUpAuth = 'Sign Up';
+  static const String signInToContinueAuth = 'Sign in to Continue';
 }
