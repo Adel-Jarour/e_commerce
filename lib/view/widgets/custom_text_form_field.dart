@@ -2,7 +2,8 @@ import 'package:e_commerce/constance/color_const.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_utils/src/extensions/internacionalization.dart';
+
+enum TextFieldType { auth, search }
 
 class CustomTextFormField extends StatelessWidget {
   final String? hintTxt;
@@ -32,9 +33,11 @@ class CustomTextFormField extends StatelessWidget {
   final double? prefixScale;
   final double? hintFontSize;
   final TextDirection? textDirection;
+  final TextFieldType? textFieldType;
 
   const CustomTextFormField({
     super.key,
+    required this.onEditingComplete,
     this.hintTxt,
     this.label,
     this.onPressedPrefixIcon,
@@ -61,19 +64,22 @@ class CustomTextFormField extends StatelessWidget {
     this.textDirection = TextDirection.rtl,
     this.autofocus = false,
     this.hintFontSize,
-    required this.onEditingComplete,
+    this.textFieldType = TextFieldType.auth,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        CustomText(
-          txt: hintTxt,
-          color: ColorConst.greyTextColor,
-          fontSize: 14.sp,
-        ),
+        (textFieldType == TextFieldType.auth)
+            ? CustomText(
+                txt: hintTxt,
+                color: ColorConst.greyTextColor,
+                fontSize: 14.sp,
+              )
+            : const SizedBox(),
         TextFormField(
           focusNode: focusNode,
           autofocus: autofocus,
@@ -107,22 +113,34 @@ class CustomTextFormField extends StatelessWidget {
               color: Colors.red,
               fontSize: 13.sp,
             ),
-            fillColor: fillColor,
+            fillColor: (textFieldType == TextFieldType.auth)
+                ? fillColor
+                : const Color(0xff000000).withAlpha(12),
             filled: true,
-            focusedBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(
-                color: ColorConst.primaryColor,
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(
-                color: Color(0xffDDDDDD),
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
+            focusedBorder: (textFieldType == TextFieldType.auth)
+                ? UnderlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: ColorConst.primaryColor,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  )
+                : OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(45.0),
+                    borderSide: BorderSide.none,
+                  ),
+            enabledBorder: (textFieldType == TextFieldType.auth)
+                ? UnderlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Color(0xffDDDDDD),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  )
+                : OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(45.0),
+                    borderSide: BorderSide.none,
+                  ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0),
               borderSide: BorderSide.none,

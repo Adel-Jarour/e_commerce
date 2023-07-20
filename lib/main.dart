@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           useInheritedMediaQuery: true,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            scaffoldBackgroundColor: Colors.white,
+            scaffoldBackgroundColor: const Color(0xffffffff).withOpacity(.97),
             appBarTheme: const AppBarTheme(
               backgroundColor: Colors.white,
               elevation: 0,
