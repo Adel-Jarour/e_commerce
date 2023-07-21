@@ -62,15 +62,18 @@ class CustomButton extends StatelessWidget {
         height: high ?? 56.h,
         curve: Curves.decelerate,
         decoration: BoxDecoration(
-          color: colorButton ?? ColorConst.primaryColor,
+          color: enabled
+              ? Colors.transparent
+              : colorButton ?? ColorConst.primaryColor,
           borderRadius:
               enabled ? BorderRadius.circular(30) : BorderRadius.circular(8.0),
           border: border,
         ),
         alignment: Alignment.center,
         child: enabled
-            ? const CupertinoActivityIndicator(
+            ? CupertinoActivityIndicator(
                 color: Colors.grey,
+                radius: 13.r,
               )
             : (widget != null)
                 ? widget

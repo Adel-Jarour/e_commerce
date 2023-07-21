@@ -17,4 +17,5 @@ class ImagesConst{
   static const String womenHome = "assets/images/home/women.png";
   static const String speakerHome = "assets/images/home/speaker.png";
   static const String watchHome = "assets/images/home/watch.png";
+  static const String shirtHome = "assets/images/home/shirt.png";
 }

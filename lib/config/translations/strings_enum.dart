@@ -39,4 +39,10 @@ class Strings {
   static const String gamingHome = 'Gaming';
   static const String bestSellingHome = 'Best Selling';
   static const String seeAllHome = 'See all';
+
+  static const String productDetailTitleHome = 'Nike Dri-FIT Long Sleeve';
+  static const String sizeHome = 'Size';
+  static const String colourHome = 'Colour';
+  static const String detailsHome = 'Details';
+  static const String priceHome = 'PRICE';
 }

@@ -1,6 +1,7 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/constance/color_const.dart';
 import 'package:e_commerce/controller/home/home_controller.dart';
+import 'package:e_commerce/routes/app_routes.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:e_commerce/view/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,9 @@ class BestSellingWidget extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             return InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.productDetail);
+              },
               overlayColor: MaterialStateProperty.all(Colors.transparent),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
