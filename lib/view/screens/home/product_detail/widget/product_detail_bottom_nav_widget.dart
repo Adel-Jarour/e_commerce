@@ -27,7 +27,7 @@ class ProductDetailBottomNavWidget extends StatelessWidget {
           BoxShadow(
             offset: const Offset(0, -1),
             blurRadius: 20,
-            color: const Color(0xff242424).withAlpha(5),
+            color: const Color(0xff242424).withAlpha(8),
           ),
         ],
       ),

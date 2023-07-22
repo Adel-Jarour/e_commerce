@@ -15,11 +15,11 @@ class BestSellingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsetsDirectional.only(end: 16.w),
-          child: Row(
+    return Padding(
+      padding: EdgeInsetsDirectional.only(end: 16.w),
+      child: Column(
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -34,65 +34,68 @@ class BestSellingWidget extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        SizedBox(
-          height: 15.h,
-        ),
-        GridView.builder(
-          shrinkWrap: true,
-          itemCount: controller.bestSellingImages.length,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 164.w / 319.h,
-            crossAxisSpacing: 15.w,
-            mainAxisSpacing: 20.h,
+          SizedBox(
+            height: 15.h,
           ),
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                Get.toNamed(Routes.productDetail);
-              },
-              overlayColor: MaterialStateProperty.all(Colors.transparent),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    controller.bestSellingImages[index],
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: 240.h,
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  CustomText(
-                    txt: controller.bestSellingTitles[index],
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  SizedBox(
-                    height: 8.h,
-                  ),
-                  CustomText(
-                    txt: "Bang and Olufsen",
-                    fontSize: 12.sp,
-                    color: ColorConst.greyTextColor,
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  CustomText(
-                    txt: "75\$",
-                    fontSize: 16.sp,
-                    color: ColorConst.primaryColor,
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      ],
+          GridView.builder(
+            shrinkWrap: true,
+            itemCount: controller.bestSellingImages.length,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 164.w / 319.h,
+              crossAxisSpacing: 15.w,
+              mainAxisSpacing: 20.h,
+            ),
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.productDetail);
+                },
+                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: Image.asset(
+                        controller.bestSellingImages[index],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 240.h,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    CustomText(
+                      txt: controller.bestSellingTitles[index],
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    CustomText(
+                      txt: "Bang and Olufsen",
+                      fontSize: 12.sp,
+                      color: ColorConst.greyTextColor,
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    CustomText(
+                      txt: "75\$",
+                      fontSize: 16.sp,
+                      color: ColorConst.primaryColor,
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

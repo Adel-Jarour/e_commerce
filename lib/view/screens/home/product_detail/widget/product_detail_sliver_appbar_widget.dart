@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
-class ProductDetailTopWidget extends StatelessWidget {
-  ProductDetailTopWidget({
+class ProductDetailSliverAppBarWidget extends StatelessWidget {
+  ProductDetailSliverAppBarWidget({
     super.key,
   });
 
@@ -14,21 +13,21 @@ class ProductDetailTopWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 196.h,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            ImagesConst.shirtHome,
-          ),
-          fit: BoxFit.fitWidth,
+    return SliverAppBar(
+      expandedHeight: 196.h,
+      backgroundColor: Colors.white,
+      elevation: 1,
+      pinned: true,
+      snap: false,
+      floating: false,
+      flexibleSpace: FlexibleSpaceBar(
+        background: Image.asset(
+          ImagesConst.shirtHome,
+          fit: BoxFit.cover,
         ),
       ),
-      alignment: Alignment.center,
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      automaticallyImplyLeading: false,
+      title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
@@ -37,12 +36,17 @@ class ProductDetailTopWidget extends StatelessWidget {
             },
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            icon: Icon(Icons.arrow_back_ios_rounded, size: 25.r),
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              size: 25.r,
+              color: Colors.black,
+            ),
           ),
           InkWell(
             onTap: () {
               controller.changeFavorite();
             },
+            overlayColor: MaterialStateProperty.all(Colors.transparent),
             child: Container(
               height: 40.h,
               width: 40.w,

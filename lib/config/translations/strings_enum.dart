@@ -42,7 +42,7 @@ class Strings {
 
   static const String productDetailTitleHome = 'Nike Dri-FIT Long Sleeve';
   static const String sizeHome = 'Size';
-  static const String colourHome = 'Colour';
+  static const String colourHome = 'Color';
   static const String detailsHome = 'Details';
   static const String priceHome = 'PRICE';
 }
