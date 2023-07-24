@@ -3,6 +3,7 @@ import 'package:e_commerce/view/screens/auth/register/register_screen.dart';
 import 'package:e_commerce/view/screens/auth/splash/splash_screen.dart';
 import 'package:e_commerce/view/screens/bottom_nav/bottom_nav_screen.dart';
 import 'package:e_commerce/view/screens/home/product_detail/product_detail_screen.dart';
+import 'package:e_commerce/view/screens/home/category_result/category_result_screen.dart';
 import 'package:get/get.dart';
 import 'app_routes.dart';
 
@@ -37,6 +38,11 @@ class AppPages {
     GetPage(
       name: Routes.productDetail,
       page: () => ProductDetailScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: Routes.categoryResult,
+      page: () => CategoryResultScreen(),
       transition: Transition.leftToRight,
     ),
   ];

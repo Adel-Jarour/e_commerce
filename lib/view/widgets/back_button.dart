@@ -12,35 +12,16 @@ class BackButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OverflowBox(
-      maxWidth: double.infinity,
-      child: Padding(
-        padding: EdgeInsetsDirectional.only(start: 24.5.w),
-        child: InkWell(
-          onTap: () {
-            (onTap != null) ?
-              onTap!()
-            : Get.back();
-          },
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
-          child: Row(
-            children: [
-              Icon(
-                Icons.arrow_back_ios_rounded,
-                color: Colors.black,
-                size: 20.0.r,
-              ),
-              SizedBox(width: 4.0.w),
-              // Text(
-              //   Strings.back,
-              //   style: TextStyle(
-              //     color: ColorConst.primaryColor,
-              //     fontSize: 12.sp,
-              //   ),
-              // ),
-            ],
-          ),
-        ),
+    return IconButton(
+      onPressed: () {
+        (onTap != null) ? onTap!() : Get.back();
+      },
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints(),
+      icon: Icon(
+        Icons.arrow_back_ios_rounded,
+        size: 25.r,
+        color: Colors.black,
       ),
     );
   }

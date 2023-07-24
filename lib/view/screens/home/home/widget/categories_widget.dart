@@ -1,5 +1,7 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
+import 'package:e_commerce/constance/list_const.dart';
 import 'package:e_commerce/controller/home/home_controller.dart';
+import 'package:e_commerce/routes/app_routes.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,14 +28,20 @@ class CategoriesWidget extends StatelessWidget {
         SizedBox(
           height: 90.h,
           child: ListView.builder(
-            itemCount: controller.categoriesImages.length,
+            itemCount: ListConst.categoriesImages.length,
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsetsDirectional.only(end: 20.w),
                 child: InkWell(
-                  onTap: (){},
+                  onTap: () {
+                    final String title = ListConst.categoriesTitles[index];
+                    Get.toNamed(
+                      Routes.categoryResult,
+                      arguments: title,
+                    );
+                  },
                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                   child: Column(
                     children: [
@@ -44,7 +52,8 @@ class CategoriesWidget extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: Colors.white,
                           image: DecorationImage(
-                            image: AssetImage(controller.categoriesImages[index]),
+                            image:
+                                AssetImage(ListConst.categoriesImages[index]),
                           ),
                         ),
                       ),
@@ -52,7 +61,7 @@ class CategoriesWidget extends StatelessWidget {
                         height: 13.h,
                       ),
                       CustomText(
-                        txt: controller.categoriesTitles[index],
+                        txt: ListConst.categoriesTitles[index],
                       ),
                     ],
                   ),

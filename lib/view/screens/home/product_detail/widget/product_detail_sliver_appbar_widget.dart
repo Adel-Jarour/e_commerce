@@ -1,5 +1,6 @@
 import 'package:e_commerce/constance/images_const.dart';
 import 'package:e_commerce/controller/home/product_detail_controller.dart';
+import 'package:e_commerce/view/widgets/back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -30,18 +31,7 @@ class ProductDetailSliverAppBarWidget extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            icon: Icon(
-              Icons.arrow_back_ios_rounded,
-              size: 25.r,
-              color: Colors.black,
-            ),
-          ),
+          const BackButtonWidget(),
           InkWell(
             onTap: () {
               controller.changeFavorite();

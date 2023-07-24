@@ -38,18 +38,16 @@ class CustomOptionWidget extends StatelessWidget {
               ),
               SizedBox(
                 width: 30.w,
-                child: Expanded(
-                  child: DropdownButton(
-                    value: value,
-                    items: items,
-                    onChanged: (value) {
-                      onChanged(value);
-                    },
-                    icon: Container(),
-                    dropdownColor: Colors.white,
-                    underline: Container(),
-                    isExpanded: true,
-                  ),
+                child: DropdownButton(
+                  value: value,
+                  items: items,
+                  onChanged: (value) {
+                    onChanged(value);
+                  },
+                  icon: Container(),
+                  dropdownColor: Colors.white,
+                  underline: Container(),
+                  isExpanded: true,
                 ),
               ),
             ],

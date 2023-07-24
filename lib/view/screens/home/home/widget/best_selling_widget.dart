@@ -1,7 +1,8 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
-import 'package:e_commerce/constance/color_const.dart';
+import 'package:e_commerce/constance/list_const.dart';
 import 'package:e_commerce/controller/home/home_controller.dart';
 import 'package:e_commerce/routes/app_routes.dart';
+import 'package:e_commerce/view/widgets/custom_device_detail.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:e_commerce/view/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class BestSellingWidget extends StatelessWidget {
           ),
           GridView.builder(
             shrinkWrap: true,
-            itemCount: controller.bestSellingImages.length,
+            itemCount: 4,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -48,49 +49,12 @@ class BestSellingWidget extends StatelessWidget {
               mainAxisSpacing: 20.h,
             ),
             itemBuilder: (context, index) {
-              return InkWell(
+              return CustomDeviceDetail(
+                image: ListConst.bestSellingImages[index],
+                title: ListConst.bestSellingTitles[index],
                 onTap: () {
                   Get.toNamed(Routes.productDetail);
                 },
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(4.0),
-                      child: Image.asset(
-                        controller.bestSellingImages[index],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 240.h,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    CustomText(
-                      txt: controller.bestSellingTitles[index],
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    CustomText(
-                      txt: "Bang and Olufsen",
-                      fontSize: 12.sp,
-                      color: ColorConst.greyTextColor,
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    CustomText(
-                      txt: "75\$",
-                      fontSize: 16.sp,
-                      color: ColorConst.primaryColor,
-                    ),
-                  ],
-                ),
               );
             },
           ),

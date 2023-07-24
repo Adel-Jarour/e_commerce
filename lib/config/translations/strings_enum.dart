@@ -45,4 +45,6 @@ class Strings {
   static const String colourHome = 'Color';
   static const String detailsHome = 'Details';
   static const String priceHome = 'PRICE';
+
+  static const String newHome = 'New';
 }

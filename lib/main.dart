@@ -1,3 +1,4 @@
+import 'package:e_commerce/constance/color_const.dart';
 import 'package:e_commerce/data/local/my_shared_pref.dart';
 import 'package:e_commerce/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           useInheritedMediaQuery: true,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            scaffoldBackgroundColor: const Color(0xffffffff).withOpacity(.97),
+            scaffoldBackgroundColor: ColorConst.scaffoldBackgroundColor,
             appBarTheme: const AppBarTheme(
               backgroundColor: Colors.white,
               elevation: 0,

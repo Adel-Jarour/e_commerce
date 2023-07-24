@@ -13,4 +13,6 @@ class ColorConst{
 
   static const Color trashColor = Color(0xffFF3D00);
 
+  static Color scaffoldBackgroundColor = const Color(0xffffffff).withOpacity(.97);
+
 }

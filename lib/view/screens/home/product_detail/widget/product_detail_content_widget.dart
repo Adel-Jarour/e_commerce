@@ -1,6 +1,6 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/controller/home/product_detail_controller.dart';
-import 'package:e_commerce/view/screens/home/product_detail/widget/size_color_widget.dart';
+import 'package:e_commerce/view/screens/home/product_detail/widget/size_color_widget.dart ';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

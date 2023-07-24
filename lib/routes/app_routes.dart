@@ -5,4 +5,5 @@ class Routes {
   static const register = "/register";
   static const bottomNav = "/bottom_nav";
   static const productDetail = "/product_detail";
+  static const categoryResult = "/category_result";
 }
