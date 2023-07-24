@@ -21,4 +21,8 @@ class ImagesConst{
   static const String deskLampHome = "assets/images/home/DeskLamp.png";
   static const String standSpeakerHome = "assets/images/home/standSpeaker.png";
   static const String phoneCaseHome = "assets/images/home/phoneCase.png";
+
+  static const String wristWatchCart = "assets/images/cart/wristWatch.png";
+  static const String electricKettleCart = "assets/images/cart/electricKettle.png";
+  static const String trashCart = "assets/images/cart/trash.png";
 }

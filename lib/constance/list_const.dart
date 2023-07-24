@@ -52,4 +52,23 @@ class ListConst {
     false,
     false,
   ];
+
+
+  static List<String> cartImages = [
+    ImagesConst.wristWatchCart,
+    ImagesConst.speakerHome,
+    ImagesConst.electricKettleCart,
+    ImagesConst.phoneCaseHome,
+    ImagesConst.speakerHome,
+    ImagesConst.electricKettleCart,
+  ];
+
+  static List<String> cartTitles = [
+    'Tag Heuer Wristwatch',
+    'BeoPlay Speaker',
+    'Electric Kettle',
+    'Tag Heuer Wristwatch',
+    'BeoPlay Speaker',
+    'Electric Kettle',
+  ];
 }

@@ -47,4 +47,7 @@ class Strings {
   static const String priceHome = 'PRICE';
 
   static const String newHome = 'New';
+
+
+  static const String totalCart = 'TOTAL';
 }
