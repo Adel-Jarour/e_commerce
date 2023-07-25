@@ -48,6 +48,5 @@ class Strings {
 
   static const String newHome = 'New';
 
-
   static const String totalCart = 'TOTAL';
 }

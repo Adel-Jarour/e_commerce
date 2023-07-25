@@ -8,6 +8,7 @@ class TrashWidget extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.elevation,
+    required this.color,
     this.height,
     this.width,
     this.alignment
@@ -17,6 +18,7 @@ class TrashWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final bool elevation;
+  final Color color;
   final AlignmentGeometry? alignment;
 
   @override
@@ -28,21 +30,12 @@ class TrashWidget extends StatelessWidget {
           onTap!();
         },
         child: Container(
-          width: width ?? 34.w,
-          height: height ?? 34.h,
-          padding: EdgeInsets.symmetric(vertical: 8.9.h, horizontal: 9.89.w),
-          margin: EdgeInsets.only(top: 10.h),
+          width: width ?? double.infinity,
+          height: height ?? double.infinity,
+          // padding: EdgeInsets.symmetric(vertical: 8.9.h, horizontal: 9.89.w),
+          // margin: EdgeInsets.only(top: 10.h),
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: ColorConst.primaryColor,
-            boxShadow: elevation ? [
-              const BoxShadow(
-                offset: Offset(0, 4),
-                blurRadius: 20,
-                spreadRadius: 0,
-                color: ColorConst.greyTextColor,
-              ),
-            ] : [],
+            color: color,
           ),
           alignment: Alignment.center,
           child: Image.asset(
