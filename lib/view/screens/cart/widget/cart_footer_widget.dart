@@ -1,9 +1,11 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/constance/color_const.dart';
+import 'package:e_commerce/routes/app_routes.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:e_commerce/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CartFooterWidget extends StatelessWidget {
   const CartFooterWidget({
@@ -39,7 +41,9 @@ class CartFooterWidget extends StatelessWidget {
           ),
           CustomButton(
             txt: Strings.checkoutButton,
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.delivery);
+            },
             width: 146.w,
           ),
         ],

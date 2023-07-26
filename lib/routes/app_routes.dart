@@ -6,4 +6,5 @@ class Routes {
   static const bottomNav = "/bottom_nav";
   static const productDetail = "/product_detail";
   static const categoryResult = "/category_result";
+  static const delivery = "/delivery";
 }
