@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
     this.fontSize = 16,
     this.width,
     this.high,
-    this.borderRadius = 20,
+    this.borderRadius,
     this.outLineBorder = false,
     this.colorOutLineButton = Colors.white,
     this.widthOutLineBorder = 0,
@@ -65,8 +65,9 @@ class CustomButton extends StatelessWidget {
           color: enabled
               ? Colors.transparent
               : colorButton ?? ColorConst.primaryColor,
-          borderRadius:
-              enabled ? BorderRadius.circular(30) : BorderRadius.circular(8.0),
+          borderRadius: enabled
+              ? BorderRadius.circular(30)
+              : BorderRadius.circular(borderRadius ?? 8.0),
           border: border,
         ),
         alignment: Alignment.center,
@@ -81,8 +82,8 @@ class CustomButton extends StatelessWidget {
                     color: colorTxt,
                     txt: txt,
                     fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Sora",
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Rubik",
                   ),
       ),
     );

@@ -42,7 +42,7 @@ class CartFooterWidget extends StatelessWidget {
           CustomButton(
             txt: Strings.checkoutButton,
             onTap: () {
-              Get.toNamed(Routes.delivery);
+              Get.toNamed(Routes.checkOut);
             },
             width: 146.w,
           ),

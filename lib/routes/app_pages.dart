@@ -2,9 +2,9 @@ import 'package:e_commerce/view/screens/auth/login/login_screen.dart';
 import 'package:e_commerce/view/screens/auth/register/register_screen.dart';
 import 'package:e_commerce/view/screens/auth/splash/splash_screen.dart';
 import 'package:e_commerce/view/screens/bottom_nav/bottom_nav_screen.dart';
-import 'package:e_commerce/view/screens/check_out/delivery/delivery_screen.dart';
 import 'package:e_commerce/view/screens/home/product_detail/product_detail_screen.dart';
 import 'package:e_commerce/view/screens/home/category_result/category_result_screen.dart';
+import 'package:e_commerce/view/screens/check_out/check_out_screen.dart';
 import 'package:get/get.dart';
 import 'app_routes.dart';
 
@@ -47,8 +47,8 @@ class AppPages {
       transition: Transition.leftToRight,
     ),
     GetPage(
-      name: Routes.delivery,
-      page: () => DeliveryScreen(),
+      name: Routes.checkOut,
+      page: () => CheckOutScreen(),
       transition: Transition.leftToRight,
     ),
   ];

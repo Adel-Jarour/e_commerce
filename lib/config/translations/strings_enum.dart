@@ -49,4 +49,18 @@ class Strings {
   static const String newHome = 'New';
 
   static const String totalCart = 'TOTAL';
+
+  static const String checkout = 'Checkout';
+  static const String deliveryCheckout = 'Delivery';
+  static const String addressCheckout = 'Address';
+  static const String summaryCheckout = 'Summary';
+  static const String standardDeliveryCheckout = 'Standard Delivery';
+  static const String orderDeliveredCheckout =
+      'Order will be delivered between 3 - 5 business days';
+  static const String nextDayDeliveryCheckout = 'Next Day Delivery';
+  static const String placeYourOrderCheckout =
+      'Place your order before 6pm and your items will be delivered the next day';
+  static const String nominatedDeliveryCheckout = 'Nominated Delivery';
+  static const String pickParticularDateCheckout =
+      'Pick a particular date from the calendar and order will be delivered on selected date';
 }

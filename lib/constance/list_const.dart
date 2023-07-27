@@ -1,6 +1,7 @@
 
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/constance/images_const.dart';
+import 'package:e_commerce/data/models/checkout/delivery_model.dart';
 
 class ListConst {
 
