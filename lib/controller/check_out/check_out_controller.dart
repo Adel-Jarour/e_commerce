@@ -1,5 +1,6 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/data/models/checkout/delivery_model.dart';
+import 'package:e_commerce/view/components/custom_snakbar.dart';
 import 'package:e_commerce/view/screens/check_out/step_widgets/address/address_widget.dart';
 import 'package:e_commerce/view/screens/check_out/step_widgets/delivery/delivery_widget.dart';
 import 'package:e_commerce/view/screens/check_out/step_widgets/summary/summary_widget.dart';
@@ -14,11 +15,24 @@ class CheckOutController extends GetxController {
     update();
   }
 
+  final formKey = GlobalKey<FormState>();
+
+
   void nextStep() {
-    if (currentStepIndex < 2) {
-      currentStepIndex++;
-      update();
+    if (currentStepIndex == 0) {
+      if (currentDeliveryIndex != null) {
+        currentStepIndex++;
+      } else {
+        CustomSnackBar.showCustomErrorToast(
+            message: "You must choose one one the options");
+      }
     }
+    else if (currentStepIndex == 1) {
+      if (formKey.currentState!.validate()) {
+        currentStepIndex++;
+      }
+    }
+    update();
   }
 
   void backStep() {
@@ -58,4 +72,51 @@ class CheckOutController extends GetxController {
       subTitle: Strings.pickParticularDateCheckout,
     ),
   ];
+
+  late TextEditingController street1;
+  late TextEditingController street2;
+  late TextEditingController city;
+  late TextEditingController state;
+  late TextEditingController country;
+
+  late FocusNode street1FocusNode;
+  late FocusNode street2FocusNode;
+  late FocusNode cityFocusNode;
+  late FocusNode stateFocusNode;
+  late FocusNode countryFocusNode;
+
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    street1 = TextEditingController();
+    street2 = TextEditingController();
+    city = TextEditingController();
+    state = TextEditingController();
+    country = TextEditingController();
+
+    street1FocusNode = FocusNode();
+    street2FocusNode = FocusNode();
+    cityFocusNode = FocusNode();
+    stateFocusNode = FocusNode();
+    countryFocusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    street1.dispose();
+    street2.dispose();
+    city.dispose();
+    state.dispose();
+    country.dispose();
+
+    street1FocusNode.dispose();
+    street2FocusNode.dispose();
+    cityFocusNode.dispose();
+    stateFocusNode.dispose();
+    countryFocusNode.dispose();
+  }
 }

@@ -1,7 +1,6 @@
+import 'package:e_commerce/data/local/my_shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../data/local/my_shared_pref.dart';
 import 'ar_AR/ar_ar_translation.dart';
 import 'en_US/en_us_translation.dart';
 
@@ -15,7 +14,6 @@ class LocalizationService extends Translations {
     return _instance!;
   }
 
-  // todo change the default language
   static Locale defaultLanguage = supportedLanguages['en']!;
 
   static Map<String,Locale> supportedLanguages = {
@@ -24,7 +22,7 @@ class LocalizationService extends Translations {
   };
 
   static Map<String,TextStyle> supportedLanguagesFontsFamilies = {
-    'en' : const TextStyle(fontFamily: 'Sora'),
+    'en' : const TextStyle(fontFamily: 'Rubik'),
     'ar': const TextStyle(fontFamily: 'Cairo'),
   };
 

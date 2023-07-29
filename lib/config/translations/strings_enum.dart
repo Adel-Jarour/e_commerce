@@ -20,6 +20,11 @@ class Strings {
   static const String nameTextField = 'Name';
   static const String emailTextField = 'Email';
   static const String passwordTextField = 'Password';
+  static const String street1TextField = 'Street 1';
+  static const String street2TextField = 'Street 2';
+  static const String cityTextField = 'City';
+  static const String stateTextField = 'State';
+  static const String countryTextField = 'Country';
 
   static const String scanningAuth = 'SCANNING';
   static const String orAuth = '-OR-';
@@ -63,4 +68,7 @@ class Strings {
   static const String nominatedDeliveryCheckout = 'Nominated Delivery';
   static const String pickParticularDateCheckout =
       'Pick a particular date from the calendar and order will be delivered on selected date';
+
+
+  static const String billingAddressCheckout = 'Billing address is the same as delivery address';
 }

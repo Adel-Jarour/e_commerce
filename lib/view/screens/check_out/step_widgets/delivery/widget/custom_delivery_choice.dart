@@ -62,7 +62,7 @@ class CustomDeliveryChoice extends StatelessWidget {
                 padding: EdgeInsetsDirectional.all(5.r),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xff000000).withAlpha(10),
+                  color: const Color(0xff000000).withAlpha(20),
                 ),
                 child: (controller.currentDeliveryIndex != index)
                     ? Container()

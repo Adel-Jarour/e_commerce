@@ -33,19 +33,5 @@ class MySharedPref {
 
   static bool? isLoggedIn() => _sharedPreferences.getBool("login");
 
-  static Future<void> setAccountDetail(String name, String email) async{
-    await _sharedPreferences.setString("name", name);
-    await _sharedPreferences.setString("email", email);
-  }
-
-  static Map<String, String>? getAccountDetail() {
-    String? name = _sharedPreferences.getString("name") ?? "";
-    String? email = _sharedPreferences.getString("email") ?? "";
-    return {
-      "name" : name,
-      "email" : email,
-    };
-  }
-
   static Future<void> clear() async => await _sharedPreferences.clear();
 }
