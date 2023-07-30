@@ -16,6 +16,7 @@ class Strings {
   static const String newButton = 'NEW';
   static const String signUpNavButton = 'Sign Up';
   static const String forgotPasswordButton = 'Forgot Password?';
+  static const String changeButton = 'Change';
 
   static const String nameTextField = 'Name';
   static const String emailTextField = 'Email';
@@ -71,4 +72,7 @@ class Strings {
 
 
   static const String billingAddressCheckout = 'Billing address is the same as delivery address';
+
+  static const String mapsCheckout = 'maps';
+  static const String shippingAddressCheckout = 'Shipping Address';
 }

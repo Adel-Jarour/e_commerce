@@ -1,8 +1,10 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/constance/color_const.dart';
+import 'package:e_commerce/constance/images_const.dart';
 import 'package:e_commerce/controller/check_out/check_out_controller.dart';
 import 'package:e_commerce/view/screens/check_out/step_widgets/address/widget/input_fields_address_widget.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
+import 'package:e_commerce/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -31,7 +33,7 @@ class AddressWidget extends StatelessWidget {
           SizedBox(
             height: 28.h,
           ),
-          InputFieldsAddressWidget(),
+          const InputFieldsAddressWidget(),
         ],
       ),
     );

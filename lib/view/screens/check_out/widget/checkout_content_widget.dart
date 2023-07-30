@@ -13,48 +13,58 @@ class CheckOutContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsDirectional.only(
-          start: 16.w, end: 16.w, top: 30.h, bottom: 17.h),
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomStep(
-                index: 0,
-                title: Strings.deliveryCheckout,
-                onTap: () {
-                  controller.setStepIndex(0);
-                },
+    return SingleChildScrollView(
+      physics: const ScrollPhysics(),
+      child: Padding(
+        padding: EdgeInsetsDirectional.only(
+            start: (controller.currentStepIndex == 2) ? 0 : 16.w,
+            end: (controller.currentStepIndex == 2) ? 0 : 16.w,
+            top: 30.h,
+            bottom: 17.h),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: controller.currentStepIndex == 2 ? 16.w : 0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomStep(
+                    index: 0,
+                    title: Strings.deliveryCheckout,
+                    onTap: () {
+                      controller.setStepIndex(0);
+                    },
+                  ),
+                  CustomDiv(
+                    index: 0,
+                  ),
+                  CustomStep(
+                    index: 1,
+                    title: Strings.addressCheckout,
+                    onTap: () {
+                      controller.setStepIndex(1);
+                    },
+                  ),
+                  CustomDiv(
+                    index: 1,
+                  ),
+                  CustomStep(
+                    index: 2,
+                    title: Strings.summaryCheckout,
+                    onTap: () {
+                      controller.setStepIndex(2);
+                    },
+                  ),
+                ],
               ),
-              CustomDiv(
-                index: 0,
-              ),
-              CustomStep(
-                index: 1,
-                title: Strings.addressCheckout,
-                onTap: () {
-                  controller.setStepIndex(1);
-                },
-              ),
-              CustomDiv(
-                index: 1,
-              ),
-              CustomStep(
-                index: 2,
-                title: Strings.summaryCheckout,
-                onTap: () {
-                  controller.setStepIndex(2);
-                },
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 32.h,
-          ),
-          controller.screenBody[controller.currentStepIndex],
-        ],
+            ),
+            SizedBox(
+              height: 32.h,
+            ),
+            controller.screenBody[controller.currentStepIndex],
+          ],
+        ),
       ),
     );
   }

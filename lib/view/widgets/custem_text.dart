@@ -9,11 +9,13 @@ class CustomText extends StatelessWidget {
   final double? height;
   final double? wordSpacing;
   final double? letterSpacing;
+  final int? maxLines;
   final Color? color;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final TextDecoration? decoration;
+  final bool? softWrap;
 
   const CustomText({
     super.key,
@@ -28,13 +30,15 @@ class CustomText extends StatelessWidget {
     this.decoration = TextDecoration.none,
     this.fontFamily = "Rubik",
     this.letterSpacing,
+    this.maxLines,
+    this.softWrap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       txt!.tr,
-      maxLines: 1000,
+      maxLines: maxLines ?? 1000,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         decoration: decoration,
@@ -47,6 +51,7 @@ class CustomText extends StatelessWidget {
         letterSpacing: letterSpacing,
       ),
       textAlign: textAlign,
+      softWrap: softWrap ?? true,
     );
   }
 }

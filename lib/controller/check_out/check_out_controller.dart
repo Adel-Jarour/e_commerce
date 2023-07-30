@@ -90,11 +90,11 @@ class CheckOutController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    street1 = TextEditingController();
-    street2 = TextEditingController();
-    city = TextEditingController();
-    state = TextEditingController();
-    country = TextEditingController();
+    street1 = TextEditingController(text: '21, Alex Davidson Avenue');
+    street2 = TextEditingController(text: 'Opposite Omegatron, Vicent Quarters');
+    city = TextEditingController(text: 'Victoria Island');
+    state = TextEditingController(text: 'Lagos State');
+    country = TextEditingController(text: 'Nigeria');
 
     street1FocusNode = FocusNode();
     street2FocusNode = FocusNode();
