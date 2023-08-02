@@ -75,4 +75,15 @@ class Strings {
 
   static const String mapsCheckout = 'maps';
   static const String shippingAddressCheckout = 'Shipping Address';
+
+
+  static const String editProfileAccount = 'Edit Profile';
+  static const String shippingAddressAccount = 'Shipping Address';
+  static const String orderHistoryAccount = 'Order History';
+  static const String cardsAccount = 'Cards';
+  static const String notificationsAccount = 'Notifications';
+  static const String logOutAccount = 'Log Out';
+  static const String trackOrderAccount = 'Track Order';
+  static const String inTransitAccount = 'In Transit';
+  static const String deliveredAccount = 'Delivered';
 }

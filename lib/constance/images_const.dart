@@ -25,4 +25,11 @@ class ImagesConst{
   static const String wristWatchCart = "assets/images/cart/wristWatch.png";
   static const String electricKettleCart = "assets/images/cart/electricKettle.png";
   static const String trashCart = "assets/images/cart/trash.png";
+
+  static const String cardsAccount = "assets/images/account/cards.png";
+  static const String editProfileAccount = "assets/images/account/editProfile.png";
+  static const String logoutAccount = "assets/images/account/logout.png";
+  static const String notificationsAccount = "assets/images/account/notifications.png";
+  static const String orderHistoryAccount = "assets/images/account/orderHistory.png";
+  static const String shippingAddressAccount = "assets/images/account/shippingAddress.png";
 }

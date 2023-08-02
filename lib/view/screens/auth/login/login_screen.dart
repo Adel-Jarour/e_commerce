@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
             init: LoginController(),
             builder: (_) => Column(
               children: [
-                const CardLoginWidget(),
+                CardLoginWidget(),
                 SizedBox(
                   height: 28.h,
                 ),

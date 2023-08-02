@@ -50,13 +50,19 @@ class CheckoutBottomNavWidget extends StatelessWidget {
                   width: 23.w,
                 ),
                 Expanded(
-                  child: CustomButton(
-                    txt: Strings.nextButton,
-                    onTap: () {
-                      controller.nextStep();
-                    },
-                    borderRadius: 4.0,
-                  ),
+                  child: (controller.currentStepIndex == 2)
+                      ? CustomButton(
+                          txt: Strings.deliverButton,
+                          onTap: () {},
+                          borderRadius: 4.0,
+                        )
+                      : CustomButton(
+                          txt: Strings.nextButton,
+                          onTap: () {
+                            controller.nextStep();
+                          },
+                          borderRadius: 4.0,
+                        ),
                 ),
               ],
             ),

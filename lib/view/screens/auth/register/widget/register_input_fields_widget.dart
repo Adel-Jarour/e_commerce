@@ -6,50 +6,59 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class RegisterInputFieldsWidget extends StatelessWidget {
-  RegisterInputFieldsWidget({Key? key}) : super(key: key);
-
-  final RegisterController controller = Get.find();
+  const RegisterInputFieldsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTextFormField(
-          onEditingComplete: () {
-            controller.emailFocusNode.requestFocus();
-          },
-          hintTxt: Strings.nameTextField,
-          controller: controller.name,
-          focusNode: controller.nameFocusNode,
+    return GetBuilder<RegisterController>(
+      builder: (controller) => Form(
+        key: controller.formKey,
+        child: Column(
+          children: [
+            CustomTextFormField(
+              onEditingComplete: () {
+                controller.emailFocusNode.requestFocus();
+              },
+              hintTxt: Strings.nameTextField,
+              controller: controller.name,
+              focusNode: controller.nameFocusNode,
+              errorText:
+                  (controller.nameShowingError) ? controller.nameError : null,
+            ),
+            SizedBox(
+              height: 38.h,
+            ),
+            CustomTextFormField(
+              onEditingComplete: () {
+                controller.passFocusNode.requestFocus();
+              },
+              hintTxt: Strings.emailTextField,
+              keyboardType: TextInputType.emailAddress,
+              controller: controller.email,
+              focusNode: controller.emailFocusNode,
+              errorText:
+                  (controller.emailShowingError) ? controller.emailError : null,
+            ),
+            SizedBox(
+              height: 38.h,
+            ),
+            CustomTextFormField(
+              onEditingComplete: () {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              hintTxt: Strings.passwordTextField,
+              obscureText: true,
+              controller: controller.password,
+              focusNode: controller.passFocusNode,
+              errorText:
+                  (controller.passShowingError) ? controller.passError : null,
+            ),
+            SizedBox(
+              height: 60.h,
+            ),
+          ],
         ),
-        SizedBox(
-          height: 38.h,
-        ),
-        CustomTextFormField(
-          onEditingComplete: () {
-            controller.passFocusNode.requestFocus();
-          },
-          hintTxt: Strings.emailTextField,
-          keyboardType: TextInputType.emailAddress,
-          controller: controller.email,
-          focusNode: controller.emailFocusNode,
-        ),
-        SizedBox(
-          height: 38.h,
-        ),
-        CustomTextFormField(
-          onEditingComplete: () {
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          hintTxt: Strings.passwordTextField,
-          obscureText: true,
-          controller: controller.password,
-          focusNode: controller.passFocusNode,
-        ),
-        SizedBox(
-          height: 60.h,
-        ),
-      ],
+      ),
     );
   }
 }

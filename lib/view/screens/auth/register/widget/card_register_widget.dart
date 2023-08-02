@@ -1,13 +1,18 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
+import 'package:e_commerce/controller/auth/register_controller.dart';
+import 'package:e_commerce/view/components/my_widgets_animator.dart';
 import 'package:e_commerce/view/screens/auth/register/widget/register_input_fields_widget.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:e_commerce/view/widgets/custom_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 
 class CardRegisterWidget extends StatelessWidget {
-  const CardRegisterWidget({Key? key}) : super(key: key);
+  CardRegisterWidget({Key? key}) : super(key: key);
+
+  final RegisterController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -35,18 +40,22 @@ class CardRegisterWidget extends StatelessWidget {
             fontSize: 30.sp,
             fontWeight: FontWeight.w600,
           ),
-          SizedBox(height: 47.h,),
-          RegisterInputFieldsWidget(),
-          CustomButton(
-            txt: Strings.signUpButton,
-            onTap: () {
-            },
+          SizedBox(
+            height: 47.h,
+          ),
+          const RegisterInputFieldsWidget(),
+          Align(
+            alignment: AlignmentDirectional.center,
+            child: CustomButton(
+              txt: Strings.signUpButton,
+              onTap: () async {
+                await controller.performSignUp();
+              },
+              enabled: controller.creatingAccount,
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-
-

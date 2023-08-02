@@ -1,5 +1,5 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
-import 'package:e_commerce/routes/app_routes.dart';
+import 'package:e_commerce/controller/auth/login_controller.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/forget_password_widget.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/login_input_fields_widget.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/welcome_widget.dart';
@@ -9,9 +9,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CardLoginWidget extends StatelessWidget {
-  const CardLoginWidget({
+  CardLoginWidget({
     super.key,
   });
+
+  final LoginController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +27,10 @@ class CardLoginWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.0),
         boxShadow: [
           BoxShadow(
-              offset: const Offset(0, 5),
-              blurRadius: 15,
-              color: const Color(0xff242424).withAlpha(20),
-              spreadRadius: 2,
+            offset: const Offset(0, 5),
+            blurRadius: 15,
+            color: const Color(0xff242424).withAlpha(20),
+            spreadRadius: 2,
           ),
         ],
       ),
@@ -36,13 +38,17 @@ class CardLoginWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const WelcomeWidget(),
-          LoginInputFieldsWidget(),
+          const LoginInputFieldsWidget(),
           const ForgetPasswordWidget(),
-          CustomButton(
-            txt: Strings.signInButton,
-            onTap: () {
-              Get.toNamed(Routes.bottomNav);
-            },
+          Align(
+            alignment: AlignmentDirectional.center,
+            child: CustomButton(
+              txt: Strings.signInButton,
+              onTap: () {
+                controller.performLogin();
+              },
+              enabled: controller.login,
+            ),
           ),
         ],
       ),

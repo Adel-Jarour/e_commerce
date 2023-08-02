@@ -5,40 +5,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
 class LoginInputFieldsWidget extends StatelessWidget {
-  LoginInputFieldsWidget({
+  const LoginInputFieldsWidget({
     super.key,
   });
 
-  final LoginController controller = Get.find();
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTextFormField(
-          onEditingComplete: () {
-            controller.passFocusNode.requestFocus();
-          },
-          hintTxt: Strings.emailTextField,
-          keyboardType: TextInputType.emailAddress,
-          controller: controller.email,
-          focusNode: controller.emailFocusNode,
+    return GetBuilder<LoginController>(
+      builder: (controller) => Form(
+        key: controller.formKey,
+        child: Column(
+          children: [
+            CustomTextFormField(
+              onEditingComplete: () {
+                controller.passFocusNode.requestFocus();
+              },
+              hintTxt: Strings.emailTextField,
+              keyboardType: TextInputType.emailAddress,
+              controller: controller.email,
+              focusNode: controller.emailFocusNode,
+              errorText:
+                  (controller.emailShowingError) ? controller.emailError : null,
+            ),
+            SizedBox(
+              height: 38.h,
+            ),
+            CustomTextFormField(
+              onEditingComplete: () {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              hintTxt: Strings.passwordTextField,
+              obscureText: true,
+              controller: controller.password,
+              focusNode: controller.passFocusNode,
+              errorText:
+                  (controller.passShowingError) ? controller.passError : null,
+            )
+          ],
         ),
-        SizedBox(
-          height: 38.h,
-        ),
-        CustomTextFormField(
-          onEditingComplete: () {
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          hintTxt: Strings.passwordTextField,
-          obscureText: true,
-          controller: controller.password,
-          focusNode: controller.passFocusNode,
-        )
-      ],
+      ),
     );
   }
 }
