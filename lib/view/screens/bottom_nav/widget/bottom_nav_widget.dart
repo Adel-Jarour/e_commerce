@@ -42,7 +42,7 @@ class BottomNavWidget extends StatelessWidget {
             ),
             CustomBottomNavContent(
               index: 2,
-              title: Strings.cartBottomNav,
+              title: Strings.accountBottomNav,
               image: ImagesConst.user,
             ),
           ],
