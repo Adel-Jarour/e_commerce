@@ -19,7 +19,6 @@ class BottomNavScreen extends StatelessWidget {
             : [
                 const CartFooterWidget(),
               ],
-        // body: controller.screens[controller.currentIndex],
         body: PageTransitionSwitcher(
           transitionBuilder: (
             Widget child,

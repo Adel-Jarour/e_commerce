@@ -31,8 +31,6 @@ class LoginController extends GetxController {
   ApiCallStatus apiCallStatus = ApiCallStatus.holding;
 
   Future signIn() async {
-    login = true;
-    update();
     await BaseClient.safeApiCall(
       ApiConst.login, // url
       RequestType.post,
@@ -46,7 +44,9 @@ class LoginController extends GetxController {
       },
       onSuccess: (response) {
         CustomSnackBar.showCustomSnackBar(
-            title: 'Register', message: response.statusMessage!);
+          title: 'Register',
+          message: response.data["message"],
+        );
         apiCallStatus = ApiCallStatus.success;
         login = false;
         update(); // update ui
