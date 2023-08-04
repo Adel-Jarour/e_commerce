@@ -18,13 +18,10 @@ class RegisterController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
   String nameError = 'must be at least 3 char';
-  String emailError = 'must contain @';
-  String passError = 'must be at least 3 char and at most 15 char';
 
   bool nameShowingError = false;
   bool emailShowingError = false;
   bool passShowingError = false;
-  bool creatingAccount = false;
 
   Future performSignUp() async {
     if (formKey.currentState!.validate() && checkData()) {
@@ -35,8 +32,6 @@ class RegisterController extends GetxController {
   ApiCallStatus apiCallStatus = ApiCallStatus.holding;
 
   Future register() async {
-    creatingAccount = true;
-    update();
     await BaseClient.safeApiCall(
       ApiConst.register, // url
       RequestType.post,
@@ -51,16 +46,15 @@ class RegisterController extends GetxController {
         update();
       },
       onSuccess: (response) {
-        CustomSnackBar.showCustomSnackBar(
-            title: 'Register', message: response.statusMessage!);
+        CustomSnackBar.showCustomToast(
+            title: 'Register', message: "create account successfully");
         apiCallStatus = ApiCallStatus.success;
-        creatingAccount = false;
-        update(); // update ui
+        update();
+        Get.offAllNamed(Routes.bottomNav);
       },
       onError: (error) {
         BaseClient.handleApiError(error);
         apiCallStatus = ApiCallStatus.error;
-        creatingAccount = false;
         update();
       },
     );

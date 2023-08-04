@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/controller/check_out/check_out_controller.dart';
 import 'package:e_commerce/view/screens/check_out/widget/custom_div.dart';
@@ -62,7 +63,22 @@ class CheckOutContentWidget extends StatelessWidget {
             SizedBox(
               height: 32.h,
             ),
-            controller.screenBody[controller.currentStepIndex],
+            PageTransitionSwitcher(
+              transitionBuilder: (
+                Widget child,
+                Animation<double> primaryAnimation,
+                Animation<double> secondaryAnimation,
+              ) {
+                return SharedAxisTransition(
+                  animation: primaryAnimation,
+                  secondaryAnimation: secondaryAnimation,
+                  transitionType: SharedAxisTransitionType.scaled,
+                  fillColor: Colors.transparent,
+                  child: child,
+                );
+              },
+              child: controller.screenBody[controller.currentStepIndex],
+            ),
           ],
         ),
       ),

@@ -1,11 +1,15 @@
 import 'package:e_commerce/constance/images_const.dart';
+import 'package:e_commerce/controller/account/account_controller.dart';
 import 'package:e_commerce/view/screens/account/account/widget/menus_widget.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Account extends StatelessWidget {
-  const Account({Key? key}) : super(key: key);
+  Account({Key? key}) : super(key: key);
+
+  final AccountController controller = Get.put(AccountController());
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +58,7 @@ class Account extends StatelessWidget {
             SizedBox(
               height: 112.h,
             ),
-            const MenusWidget(),
+            MenusWidget(),
           ],
         ),
       ),

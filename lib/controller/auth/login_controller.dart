@@ -15,12 +15,8 @@ class LoginController extends GetxController {
 
   final formKey = GlobalKey<FormState>();
 
-  String emailError = 'must contain @';
-  String passError = 'must be at least 3 char and at most 15 char';
-
   bool emailShowingError = false;
   bool passShowingError = false;
-  bool login = false;
 
   Future performLogin() async {
     if (formKey.currentState!.validate() && checkData()) {
@@ -32,7 +28,7 @@ class LoginController extends GetxController {
 
   Future signIn() async {
     await BaseClient.safeApiCall(
-      ApiConst.login, // url
+      ApiConst.login,
       RequestType.post,
       queryParameters: {
         'email': email.text,
@@ -43,23 +39,19 @@ class LoginController extends GetxController {
         update();
       },
       onSuccess: (response) {
-        CustomSnackBar.showCustomSnackBar(
-          title: 'Register',
+        CustomSnackBar.showCustomToast(
+          title: 'Welcome back!',
           message: response.data["message"],
         );
         apiCallStatus = ApiCallStatus.success;
-        login = false;
-        update(); // update ui
-        Get.toNamed(Routes.bottomNav);
+        update();
+        email.clear();
+        password.clear();
+        Get.offAllNamed(Routes.bottomNav);
       },
       onError: (error) {
-        // BaseClient.handleApiError(error);
-        CustomSnackBar.showCustomErrorSnackBar(
-          title: 'Login Error',
-          message: error.message,
-        );
+        BaseClient.handleApiError(error);
         apiCallStatus = ApiCallStatus.error;
-        login = false;
         update();
       },
     );

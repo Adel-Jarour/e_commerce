@@ -17,6 +17,8 @@ class Strings {
   static const String signUpNavButton = 'Sign Up';
   static const String forgotPasswordButton = 'Forgot Password?';
   static const String changeButton = 'Change';
+  static const String yesButton = 'Yes';
+  static const String cancelButton = 'Cancel';
 
   static const String nameTextField = 'Name';
   static const String emailTextField = 'Email';
@@ -86,4 +88,11 @@ class Strings {
   static const String trackOrderAccount = 'Track Order';
   static const String inTransitAccount = 'In Transit';
   static const String deliveredAccount = 'Delivered';
+
+
+  static const String areYouSureDialog = 'Are you sure that you want to log out?';
+  static const String logoutDialog = 'Log out';
+
+  static const String emailError = 'must contain @';
+  static const String passError = 'must be at least 3 char and at most 15 char';
 }

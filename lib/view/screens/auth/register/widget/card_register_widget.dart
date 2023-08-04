@@ -1,5 +1,6 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/controller/auth/register_controller.dart';
+import 'package:e_commerce/data/cloud/api_call_status.dart';
 import 'package:e_commerce/view/components/my_widgets_animator.dart';
 import 'package:e_commerce/view/screens/auth/register/widget/register_input_fields_widget.dart';
 import 'package:e_commerce/view/widgets/custem_text.dart';
@@ -51,7 +52,7 @@ class CardRegisterWidget extends StatelessWidget {
               onTap: () async {
                 await controller.performSignUp();
               },
-              enabled: controller.creatingAccount,
+              enabled: controller.apiCallStatus == ApiCallStatus.loading,
             ),
           ),
         ],

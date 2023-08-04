@@ -37,7 +37,7 @@ class RegisterInputFieldsWidget extends StatelessWidget {
               controller: controller.email,
               focusNode: controller.emailFocusNode,
               errorText:
-                  (controller.emailShowingError) ? controller.emailError : null,
+                  (controller.emailShowingError) ? Strings.emailError : null,
             ),
             SizedBox(
               height: 38.h,
@@ -51,7 +51,7 @@ class RegisterInputFieldsWidget extends StatelessWidget {
               controller: controller.password,
               focusNode: controller.passFocusNode,
               errorText:
-                  (controller.passShowingError) ? controller.passError : null,
+                  (controller.passShowingError) ? Strings.passError : null,
             ),
             SizedBox(
               height: 60.h,

@@ -81,7 +81,7 @@ class CustomButton extends StatelessWidget {
                 : CustomText(
                     color: colorTxt,
                     txt: txt,
-                    fontSize: 16.sp,
+                    fontSize: fontSize ?? 16.sp,
                     fontWeight: FontWeight.w400,
                     fontFamily: "Rubik",
                   ),

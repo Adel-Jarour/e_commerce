@@ -6,7 +6,6 @@ import 'package:e_commerce/data/cloud/api_exception.dart';
 import 'package:e_commerce/view/components/custom_snakbar.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-
 enum RequestType {
   get,
   post,
@@ -15,14 +14,10 @@ enum RequestType {
 }
 
 class BaseClient {
-  static final Dio _dio = Dio(
-      BaseOptions(
-          headers: {
-            'Content-Type' : 'application/json',
-            'Accept' : 'application/json'
-          }
-      )
-  )
+  static final Dio _dio = Dio(BaseOptions(headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }))
     ..interceptors.add(PrettyDioLogger(
       requestHeader: true,
       requestBody: true,
@@ -38,18 +33,18 @@ class BaseClient {
   static get dio => _dio;
 
   static safeApiCall(
-      String url,
-      RequestType requestType, {
-        Map<String, dynamic>? headers,
-        Map<String, dynamic>? queryParameters,
-        required Function(Response response) onSuccess,
-        Function(ApiException)?   onError,
-        Function(int value, int progress)? onReceiveProgress,
-        Function(int total, int progress)?
+    String url,
+    RequestType requestType, {
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? queryParameters,
+    required Function(Response response) onSuccess,
+    Function(ApiException)? onError,
+    Function(int value, int progress)? onReceiveProgress,
+    Function(int total, int progress)?
         onSendProgress, // while sending (uploading) progress
-        Function? onLoading,
-        dynamic data,
-      }) async {
+    Function? onLoading,
+    dynamic data,
+  }) async {
     try {
       await onLoading?.call();
       late Response response;
@@ -96,22 +91,24 @@ class BaseClient {
     } on TimeoutException {
       _handleTimeoutException(url: url, onError: onError);
     } catch (error, stackTrace) {
-     print(stackTrace);
+      print(stackTrace);
       _handleUnexpectedException(url: url, onError: onError, error: error);
     }
   }
 
   static download(
       {required String url,
-        required String savePath,
-        Function(ApiException)? onError,
-        Function(int value, int progress)? onReceiveProgress,
-        required Function onSuccess}) async {
+      required String savePath,
+      Function(ApiException)? onError,
+      Function(int value, int progress)? onReceiveProgress,
+      required Function onSuccess}) async {
     try {
       await _dio.download(
         url,
         savePath,
-        options: Options(receiveTimeout: const Duration(seconds: _timeoutInSeconds), sendTimeout: const Duration(seconds: _timeoutInSeconds)),
+        options: Options(
+            receiveTimeout: const Duration(seconds: _timeoutInSeconds),
+            sendTimeout: const Duration(seconds: _timeoutInSeconds)),
         onReceiveProgress: onReceiveProgress,
       );
       onSuccess();
@@ -123,8 +120,8 @@ class BaseClient {
 
   static _handleUnexpectedException(
       {Function(ApiException)? onError,
-        required String url,
-        required Object error}) {
+      required String url,
+      required Object error}) {
     if (onError != null) {
       onError(ApiException(
         message: error.toString(),
@@ -161,9 +158,8 @@ class BaseClient {
 
   static _handleDioError(
       {required DioException error,
-        Function(ApiException)? onError,
-        required String url}) {
-
+      Function(ApiException)? onError,
+      required String url}) {
     if (error.response?.statusCode == 404) {
       if (onError != null) {
         return onError(ApiException(
@@ -176,7 +172,8 @@ class BaseClient {
       }
     }
 
-    if (error.message != null && error.message!.toLowerCase().contains('socket')) {
+    if (error.message != null &&
+        error.message!.toLowerCase().contains('socket')) {
       if (onError != null) {
         return onError(ApiException(
           message: 'Strings.noInternetConnection.tr',
@@ -215,7 +212,7 @@ class BaseClient {
 
   static handleApiError(ApiException apiException) {
     String msg = apiException.toString();
-    CustomSnackBar.showCustomErrorSnackBar(title: 'Register failed' ,message: msg);
+    CustomSnackBar.showCustomErrorToast(message: msg);
   }
 
   static _handleError(String msg) {

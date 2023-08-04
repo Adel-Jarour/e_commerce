@@ -1,7 +1,6 @@
 import 'package:e_commerce/config/translations/strings_enum.dart';
 import 'package:e_commerce/controller/auth/login_controller.dart';
 import 'package:e_commerce/data/cloud/api_call_status.dart';
-import 'package:e_commerce/view/components/my_widgets_animator.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/forget_password_widget.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/login_input_fields_widget.dart';
 import 'package:e_commerce/view/screens/auth/login/widget/welcome_widget.dart';
